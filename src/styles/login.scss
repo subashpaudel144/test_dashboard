@@ -1,0 +1,27 @@
+.login_wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: aqua;
+
+  .form_wrapper {
+    width: 400px;
+    background-color: white;
+    padding: 30px;
+    margin: 30px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+
+    h3 {
+      text-align: center;
+      color: navy;
+    }
+
+    input {
+      height: 45px;
+    }
+  }
+}

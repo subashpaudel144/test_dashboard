@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import "../styles/dashboard.scss"
 import axios from "axios"
+import { Navigate } from "react-router-dom"
 
 const Dashboard = () => {
   const [ticketData, setTicketData] = useState([])
@@ -26,10 +27,10 @@ const Dashboard = () => {
       })
   }, [])
 
-  console.log(ticketData)
-
   const localStorageToken = localStorage.getItem("access-token")
-  console.log(localStorageToken)
+  if (!localStorageToken) {
+    return <Navigate to="/login" replace />
+  }
   return (
     <div className="dashboard_wrapper">
       <h1>CityTech Dashboard</h1>

@@ -17,7 +17,8 @@ const Login = () => {
         "https://jp-dev.cityremit.global/web-api/config/v1/auths/login",
         data
       )
-      const token = loginResponse?.data?.data[0]?.token_key
+      console.log("loginresponse", loginResponse)
+      const token = loginResponse?.data?.data[0]?.jwt_token
       localStorage.setItem("access-token", token)
       window.location.href = "/"
     } catch (err) {

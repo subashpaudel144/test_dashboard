@@ -27,14 +27,22 @@ const Dashboard = () => {
       })
   }, [])
 
+  const handleLogout = () => {
+    localStorage.removeItem("access-token")
+    window.location.href = "/login"
+  }
+
   const localStorageToken = localStorage.getItem("access-token")
   if (!localStorageToken) {
     return <Navigate to="/login" replace />
   }
   return (
     <div className="dashboard_wrapper">
-      <h1>CityTech Dashboard</h1>
-      <h5>Tickets</h5>
+      <div className="header_wrapper">
+        <h1>CityTech Dashboard</h1>
+        <button onClick={handleLogout}>Log out</button>
+      </div>
+      <h5>List of Transactions</h5>
 
       <table>
         <tr>

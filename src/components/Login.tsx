@@ -1,6 +1,7 @@
 import React, { FormEvent } from "react"
 import "../styles/login.scss"
 import axios from "axios"
+import { Navigate } from "react-router-dom"
 
 const Login = () => {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -24,6 +25,11 @@ const Login = () => {
     } catch (err) {
       console.log(err)
     }
+  }
+
+  const userToken = localStorage.getItem("access-token")
+  if (userToken) {
+    return <Navigate to="/" replace />
   }
   return (
     <div className="login_wrapper">
